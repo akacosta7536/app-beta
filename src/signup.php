@@ -32,5 +32,17 @@ $sql = "INSERT INTO users (firstname, lastname, email, mobile_phone, password)
  VALUES ('$f_name','$l_name', '$e_mail','$m_phone','$enc_pass')";
 
  //Execute query
- pg_query ($sql);
+ //pg_query ($sql);
+
+ pg_query("BEGIN");
+
+$result = pg_query($sql);
+
+if ($result) {
+    pg_query("COMMIT");
+    echo "Usuario registrado correctamente";
+} else {
+    pg_query("ROLLBACK");
+    echo "Error en el registro";
+}
 
