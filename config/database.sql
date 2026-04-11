@@ -4,6 +4,7 @@ create table users (
     lastname varchar NOT NULL, 
     email varchar UNIQUE, 
     password varchar NOT NULL ,
-    password_again varchar NOT NULL, 
-    mobile_phone char(10) NOT NULL
+    mobile_phone char(10) NOT NULL,
+    status type boolean,
+    profile_photo VARCHAR (255)
 )
