@@ -40,9 +40,12 @@ $result = pg_query($sql);
 
 if ($result) {
     pg_query("COMMIT");
-    echo "Usuario registrado correctamente";
+    echo "<script>alert('Listo.Usuario Registrado')</script>";
+       header ('refresh:0;url=signin.html');
+
 } else {
     pg_query("ROLLBACK");
     echo "Error en el registro";
 }
+
 
